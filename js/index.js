@@ -35,25 +35,31 @@ images[3].addEventListener('mousedown', (event) => {
 });
 
 images[1].addEventListener('mouseup', (event) => {
-    images[1].style.border = 'thick solid black';
+    images[1].style.border = 'thick solid white';
 });
 
 images[2].addEventListener('mouseup', (event) => {
-    images[2].style.border = 'thick solid black';
+    images[2].style.border = 'thick solid white';
 });
 
 images[3].addEventListener('mouseup', (event) => {
-    images[3].style.border = 'thick solid black';
+    images[3].style.border = 'thick solid white';
 });
 
 const nav = document.querySelectorAll('a');
 
-document.addEventListener ('keydown', event => {
+document.addEventListener ('keydown', (event) => {
     nav[2].style.visibility = 'hidden';
 });
 
-document.addEventListener ('keyup', event => {
+document.addEventListener ('keyup', (event) => {
     nav[2].style.visibility = 'visible';
+});
+
+nav.forEach((element) => {
+    element.addEventListener('click', (event) => {
+        event.preventDefault();
+    })
 });
 
 const heading = document.querySelector('h1');
@@ -62,6 +68,11 @@ window.addEventListener('scroll', () => {
     document.body.style.backgroundColor = 'black';
     document.body.style.color = 'white';
     heading.style.color = 'purple';
+});
+
+window.addEventListener('resize', (event) => {
+    document.body.style.color = 'purple';
+    event.stopPropagation();
 });
 
 
